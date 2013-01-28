@@ -47,6 +47,9 @@
 (defn euler008
   "Find the greatest product of five consecutive digits in the 1000-digit number."
   []
-  (let [digits (string-to-digits euler008-nu)] ; Convert String to a list of digits
-    
-    (foo digits))) ; find the max product
+  (loop [greatest 0
+         digits   (string-to-digits euler008-nu)]
+    (if empty? digits) greatest
+                       (recur (max greatest (reduce * (take 5 digits)))
+                              (drop 1 digits))))
+                        
