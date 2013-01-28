@@ -7,8 +7,10 @@ My attempts at solving the [Project Euler](http://projecteuler.net) problems in 
 - [x] 002
 - [x] 003
 - [ ] 004
-- [ ] 005
-- [x] 006 (not tested)
+- [x] 005
+- [x] 006
+- [x] 007
+- [x] 008
 
 ## License
 
