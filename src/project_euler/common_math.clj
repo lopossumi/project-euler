@@ -1,14 +1,18 @@
 (ns project-euler.common-math)
 
-(defn multiple-of-3-or-5?
-  [x]
-  (or (= 0 (mod x 3))
-      (= 0 (mod x 5))))
-
 (defn divides?
   "Returns a predicate function: is x divisible by parameter?"
   [x]
   #(= 0 (mod x %)))
+
+(defn multiple-of-3-or-5?
+  [x]
+  (or ((divides? x) 3)
+      ((divides? x) 5)))
+
+(defn square
+  [x]
+  (* x x))
 
 (defn next-fib
   [[a b]]
