@@ -20,8 +20,8 @@
 
 (defn prime?
   "Determines if a number is prime. Not efficient, yet."
-  [x]
-  (empty? (filter (divides? x) (range 2 x))))
+  ([x] (empty? (filter (divides? x) (range 2 x))))
+  ([x smaller-primes] (empty? filter (divides? x) smaller-primes))) ; Check if any prime smaller than x divides x
 
 (defn fibs
   "Returns a lazy sequence of fibonacci numbers."
@@ -42,3 +42,12 @@
            :else (recur factors
                         (inc iter)
                         divided))))
+
+(defn lazy-primes
+  "Horrible implementation of a lazy prime list."
+  []
+  (filter prime? (iterate inc 2)))
+
+(defn string-to-digits
+  [string]
+  (map #(Character/getNumericValue %) string))
