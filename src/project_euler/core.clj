@@ -16,3 +16,19 @@
   "Finds the largest prime factor of 600851475143."
   []
   (first (common/prime-factors 600851475143)))
+
+(defn euler004
+  "Finds the largest palindrome made from the product of two 3-digit numbers."
+  []
+  ("Write me!"))
+
+(defn euler005
+  "What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?"
+  []
+  ("Write me!"))
+
+(defn euler006
+  "Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum."
+  []
+  (- (square (reduce + (range 101)))
+     (reduce + (map square (range 101)))))
