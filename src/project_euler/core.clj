@@ -51,4 +51,14 @@
          digits   (common/string-to-digits euler008-nu)]
     (if (empty? digits) greatest
                        (recur (max greatest (reduce * (take 5 digits)))
-                              (drop 1 digits)))))                        
+                              (drop 1 digits)))))
+
+(defn euler009
+  "There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+  Find the product abc."
+  []
+  (let [triplets (for [a (range 1 500)
+                       b (range 1 500)
+                        :when (< a b)]
+                       [a b (Math/sqrt (+ (common/square a) (common/square b)))])]
+    (int (reduce * (first (filter #(= 1000.0 (apply + %)) triplets))))))

@@ -51,3 +51,8 @@
     (is (= '(1 2 3 4 5)
            (common/string-to-digits "12345")))
     (println "Problem 008: " (time (euler008)))))
+
+(deftest euler009-test
+  (testing "Euler 009"
+    (println "Problem 009: " (time (euler009)))))
+
