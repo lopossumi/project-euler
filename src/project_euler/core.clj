@@ -27,7 +27,7 @@
   "What is the smallest positive number that is 
   evenly divisible by all of the numbers from 1 to 20?"
   []
-  ("Write me!"))
+  (* 2 2 2 2 3 3 5 7 11 13 17 19)) ; Pen and paper
 
 (defn euler006
   "Find the difference between the sum of the squares of the 
