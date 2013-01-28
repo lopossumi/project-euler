@@ -51,3 +51,7 @@
 (defn string-to-digits
   [string]
   (map #(Character/getNumericValue %) string))
+
+(defn reverse-num
+  [x]
+  "write me!")

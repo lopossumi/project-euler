@@ -43,7 +43,7 @@
 (deftest euler007-test
   (testing "Euler 007"
     (is (= 13
-           (nth common/lazy-primes 6)))
+           (nth (common/lazy-primes) 5)))
     (println "Problem 007: " (time (euler007)))))
 
 (deftest euler008-test
