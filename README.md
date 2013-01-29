@@ -17,4 +17,4 @@ My attempts at solving the [Project Euler](http://projecteuler.net) problems in 
 
 Copyright © 2013 lopossumi
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the [Eclipse Public License](http://www.eclipse.org/legal/epl-v10.html), the same as Clojure.
