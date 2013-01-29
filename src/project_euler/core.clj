@@ -62,3 +62,8 @@
                         :when (< a b)]
                        [a b (Math/sqrt (+ (common/square a) (common/square b)))])]
     (int (reduce * (first (filter #(= 1000.0 (apply + %)) triplets))))))
+
+(defn euler010
+  "Find the sum of all the primes below two million."
+  []
+  (reduce + (take-while (partial > 2000000) (common/lazy-primes))))
