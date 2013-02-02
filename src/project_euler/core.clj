@@ -10,7 +10,10 @@
 (defn euler002
   "Finds the sum of even-valued fibonacci numbers below 4 000 000."
   []
-  (reduce + (filter even? (take-while (partial > 4000000) (common/fibs)))))
+  ;(reduce + (filter even? (take-while (partial > 4000000) (common/fibs)))))
+  (->> (take-while (partial > 4000000) (common/fibs))
+       (filter even?)
+       (reduce +)))
 
 (defn euler003
   "Finds the largest prime factor of 600851475143."

@@ -20,8 +20,13 @@
 
 (defn prime?
   "Determines if a number is prime. Not efficient, yet."
-  ([x] (empty? (filter (divides? x) (range 2 x))))
-  ([x smaller-primes] (empty? filter (divides? x) smaller-primes))) ; Check if any prime smaller than x divides x
+  ([x] (->> (range 2 x)              ; List numbers from 2 to x-1
+           (filter (divides? x))     ; leave the ones that evenly divide x
+           (empty?)))                ; if none left, number is prime.
+
+  ([x smaller-primes] (->> smaller-primes        ; Take a list of all the primes smaller than x
+                          (filter (divides? x))  ; leave the ones that evenly divide x
+                          (empty?))))            ; if none left, number is prime.
 
 (defn fibs
   "Returns a lazy sequence of fibonacci numbers."

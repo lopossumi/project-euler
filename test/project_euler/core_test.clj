@@ -44,7 +44,8 @@
   (testing "Euler 007"
     (is (= 13
            (nth (common/lazy-primes) 5)))
-    (println "Problem 007: " (time (euler007)))))
+    ;(println "Problem 007: " (time (euler007)))))   disabled!
+    ))
 
 (deftest euler008-test
   (testing "Euler 008"
