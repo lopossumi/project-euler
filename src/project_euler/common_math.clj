@@ -18,17 +18,6 @@
   (* x x))
 
 
-(defn prime?
-  "Determines if a number is prime. Not efficient, yet."
-  ([x]                (->> (range 2 x)           ; List numbers from 2 to x-1
-                           (filter (divides? x)) ; leave the ones that evenly divide x
-                           (empty?)))            ; if none left, number is prime.
-
-  ([x smaller-primes] (->> smaller-primes         ; List of primes smaller than x
-                           (filter (divides? x))  ; leave the ones that evenly divide x
-                           (empty?))))            ; if none left, number is prime.
-
-
 (defn next-fib
   [[a b]]
   [(+ a b) a])
@@ -38,6 +27,17 @@
   "Returns a lazy sequence of fibonacci numbers."
   []
   (map first (iterate next-fib [1 0])))
+
+
+(defn prime?
+  "Determines if a number is prime. Not efficient, yet."
+  ([x]                (->> (range 2 x)           ; List numbers from 2 to x-1
+                           (filter (divides? x)) ; leave the ones that evenly divide x
+                           (empty?)))            ; if none left, number is prime.
+
+  ([x smaller-primes] (->> smaller-primes         ; List of primes smaller than x
+                           (filter (divides? x))  ; leave the ones that evenly divide x
+                           (empty?))))            ; if none left, number is prime.
 
 
 (defn prime-factors
@@ -59,10 +59,15 @@
                                        x))))
 
 
-(defn lazy-primes
-  "Horrible implementation of a lazy prime list."
-  []
-  (filter prime? (iterate inc 2)))
+(def prime-gen
+  "Fast, lazy prime sequence."
+    (let [primes (atom [])]
+        (for [n (iterate inc 2)
+            :when (odd? n)
+            :when (not-any? (divides? n) 
+                            (filter #(<= % (Math/sqrt n)) @primes))]
+            (do (swap! primes conj n) 
+                n))))
 
 
 (defn string-to-digits
@@ -80,4 +85,6 @@
 
 (defn number-of-divisors
   [x]
-  1)
+ ; (->>  (prime-factors x)
+ )
+        

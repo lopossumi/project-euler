@@ -9,7 +9,8 @@
     (is (common/multiple-of-3-or-5? 15))
     (is (not (common/multiple-of-3-or-5? 28)))
     (is (common/multiple-of-3-or-5? 9))
-    (println "Problem 001: " (time (euler001)))))
+    (print "Problem 001: ")
+    (println (time (euler001)))))
 
 (deftest euler002-test
   (testing "Euler 002"
@@ -42,10 +43,10 @@
 
 (deftest euler007-test
   (testing "Euler 007"
-    (is (= 13
-           (nth (common/lazy-primes) 5)))
-    ;(println "Problem 007: " (time (euler007)))))   disabled!
-    ))
+    (is (= '(2 3 5 7 11 13)
+            (take-while (partial > 15) common/prime-gen)))
+    (println "Problem 007: " (time (euler007)))))   
+    
 
 (deftest euler008-test
   (testing "Euler 008"
@@ -57,3 +58,6 @@
   (testing "Euler 009"
     (println "Problem 009: " (time (euler009)))))
 
+(deftest euler010-test
+    (testing "Euler 010"
+        (println "Problem 010: " (time (euler010)))))
